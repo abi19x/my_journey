@@ -86,3 +86,15 @@ body {
         padding-top: 164px;
     }
 }
+
+/* fixed top navbar only on small and up */
+@media (min-width: 792px) {
+    .container-fluid {
+        background-color: aqua;
+    
+    }
+
+    body {
+        width: 1.5rem;
+    }
+}
