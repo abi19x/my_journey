@@ -2,14 +2,26 @@ html {
     height: 100%;
 }
 
-body {
-    background: url('/media/homepage_background.PNG') no-repeat right fixed;
-    background-size: 18%;
-    background-color: yellow;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
+.bg-img {
+    position: absolute;
+    top: 100px; /* Adjust based on your navbar height */
+    right: 0;
+    z-index: 0;
+    pointer-events: none; /* So it doesn't block clicks */
 }
+
+.bg-img-inner {
+    width: 300px;
+    height: auto;
+}
+
+body {
+    position: relative;
+    padding-top: 100px; /* Same as .bg-img top */
+    background-color: yellow;
+}
+
+
 
 /* from Bulma */
 .icon {
@@ -87,14 +99,15 @@ body {
     }
 }
 
-/* fixed top navbar only on small and up */
-@media (min-width: 792px) {
-    .container-fluid {
-        background-color: aqua;
-    
+/* Maintain background responsiveness on small size screens */
+@media (max-width: 768px) {
+    .bg-img-inner {
+        width: 200px;
     }
+}
 
-    body {
-        width: 1.5rem;
+@media (max-width: 576px) {
+    .bg-img {
+        display: none;
     }
 }

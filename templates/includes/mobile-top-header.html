@@ -1,20 +1,30 @@
-<li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-user fa-lg"></i></div>
-            <p class="my-0">Your Donation</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none">
+  <a class="navbar-brand" href="{% url 'home' %}"><strong>My</strong> Journey</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav"
+          aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mobileNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdownMobile" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user fa-lg"></i> Your Donation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="userDropdownMobile">
+          {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Your Contribution</a>
+              <a class="dropdown-item" href="#">Your Contribution</a>
             {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-    </div>
-</li>
+            <a class="dropdown-item" href="#">My Profile</a>
+            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+          {% else %}
+            <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+            <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
