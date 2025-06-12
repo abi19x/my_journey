@@ -99,15 +99,16 @@ body {
     }
 }
 
-/* Maintain background responsiveness on small size screens */
+/* Maintain background responsiveness on medium size screens */
 @media (max-width: 768px) {
     .bg-img-inner {
         width: 200px;
     }
 }
 
+/*  Maintain background image on small size screens
 @media (max-width: 576px) {
     .bg-img {
-        display: none;
+        width: 100px;
     }
-}
+} */
