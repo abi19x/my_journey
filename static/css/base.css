@@ -46,6 +46,16 @@ body {
     min-width: 160px;
 }
 
+.dropdown-menu {
+  z-index: 1051; /* Bootstrap dropdowns typically use 1050+ */
+}
+
+.dropdown {
+  position: relative;
+  z-index: 1051;
+}
+
+
 
 .btn-black {
     background: black;
