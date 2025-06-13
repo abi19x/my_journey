@@ -34,54 +34,57 @@
 
     <title>My Journey {% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#mainNavbar" data-offset="100">
     <header class="container-fluid fixed-top">
-      <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-        <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <h2 class="logo-font text-black my-0"><strong>My</strong> Journey</h2>
-        </a>
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <h2 class="logo-font text-black my-0"><strong>My</strong> Journey</h2>
+    </a>
 
-      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-  <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+    <!-- Hamburger toggle -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <li class="list-inline-item">
-      <a class="nav-link text-black" href="#about">My Profile</a>
-    </li>
-    <li class="list-inline-item">
-      <a class="nav-link text-black" href="#workshop">My Workshops</a>
-    </li>
-    <li class="list-inline-item">
-      <a class="nav-link text-black" href="#contact">My Contact</a>
-    </li>
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ml-auto">
+        <!-- Links -->
+        <li class="nav-item">
+          <a class="nav-link" href="#about">My Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#workshop">My Workshops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">My Contact</a>
+        </li>
 
-    <li class="list-inline-item dropdown">
-      <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <div class="text-center">
-          <div><i class="fas fa-user fa-lg"></i></div>
-          <p class="my-0">Your Donation</p>
-        </div>
-      </a>
-      <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
-          {% if request.user.is_superuser %}
-          {% endif %}
-          <a href="" class="dropdown-item">Your Contribution</a>
-          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-          <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-      </div>
-    </li>
-  </ul>
-</div>
-
-      
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-user fa-lg"></i> Your Donation
+          </a>
+          <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
+            {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+              {% endif %}
+              <a href="#" class="dropdown-item">Your Contribution</a>
+              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            {% else %}
+              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            {% endif %}
+          </div>
+        </li>
+      </ul>
     </div>
-            {% include 'includes/mobile-top-header.html' %}
+  </div>
+</nav>
+
     </header>
     <div class="bg-img">
       <img src="/media/main_image.png" alt="my bg img" class="bg-img-inner">
