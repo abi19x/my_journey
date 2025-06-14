@@ -1,6 +1,4 @@
-{% extends "base.html" %} {% load static %} 
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <div class="container h-100">
   <div class="row h-100">
     <div class="col-7 col-md-6 my-auto">
@@ -16,42 +14,71 @@
       </section>
 
       <!-- My workshop section starts here -->
-<section id="workshop" class="pt-5 mt-5">
-  <div class="container text-center my-4">
-    <h2 class="display-5">My Workshops</h2>
-  </div>
+      <section id="workshop" class="pt-5 mt-5">
+        <div class="text-center my-4">
+          <h2 class="display-5">My Workshops</h2>
+        </div>
 
-  <div class="container">
-    <div class="row">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <!-- Sweet World card -->
+            <div class="col-12 col-md-10 col-lg-5 mb-4 px-3">
+              <div class="card h-100 sharp-corners mx-auto">
+                <img
+                  src="/media/milestone_project_1.jpg"
+                  class="card-img-top"
+                  alt="Sweet World"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Sweet World</h3>
+                  <p class="card-text">
+                    This milestone project marks my introduction to web
+                    application development. I created a fully responsive,
+                    visually engaging website designed specifically for a local
+                    cake shop. The goal was to showcase their products, attract
+                    new customers, and boost overall sales through an appealing
+                    and user-friendly online presence.
+                  </p>
+                  <a
+                    href="https://abi19x.github.io/sweet-world/"
+                    target="_blank"
+                    class="btn btn-outline-secondary mt-auto"
+                    >Visit site</a
+                  >
+                </div>
+              </div>
+            </div>
 
-      <!-- Sweet World card -->
-      <div class="col-12 col-lg-6 mb-4">
-        <div class="card h-100 sharp-corners">
-          <img src="/media/milestone_project_1.jpg" class="card-img-top" alt="My first milestone project, Sweet World">
-          <div class="card-body d-flex flex-column">
-            <h3 class="card-title">Sweet World</h3>
-            <p class="card-text">This milestone project marks my introduction to web application development. I created a fully responsive, visually engaging website designed specifically for a local cake shop...</p>
-            <a href="https://abi19x.github.io/sweet-world/" target="_blank" class="btn btn-outline-secondary mt-auto">Visit site</a>
+            <!-- Flags in Clouds card -->
+            <div class="col-12 col-md-10 col-lg-5 mb-4 px-3">
+              <div class="card h-100 sharp-corners mx-auto">
+                <img
+                  src="/media/milestone_project_2.jpg"
+                  class="card-img-top"
+                  alt="Flags in Clouds"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title">Flags in Clouds</h3>
+                  <p class="card-text">
+                    This dynamic, JavaScript-driven game was specifically
+                    designed for primary school children. The website features
+                    an interactive self-study section covering the flags of all
+                    nations, along with a timed quiz that actively engages young
+                    learners while testing their knowledge in a fun and
+                    educational way.
+                  </p>
+                  <a
+                    href="https://abi19x.github.io/Flags-in-Clouds/"
+                    target="_blank"
+                    class="btn btn-outline-secondary mt-auto"
+                    >Visit site</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Flags in Clouds card -->
-      <div class="col-12 col-lg-6 mb-4">
-        <div class="card h-100 sharp-corners">
-          <img src="/media/milestone_project_2.jpg" class="card-img-top" alt="My second milestone project, Flags in Clouds">
-          <div class="card-body d-flex flex-column">
-            <h3 class="card-title">Flags in Clouds</h3>
-            <p class="card-text">This dynamic, JavaScript-driven game was specifically designed for primary school children. The website features an interactive self-study section...</p>
-            <a href="https://abi19x.github.io/Flags-in-Clouds/" target="_blank" class="btn btn-outline-secondary mt-auto">Visit site</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+      </section>
 
       <section id="contact" class="pt-5 mt-5">
         <div class="container">
