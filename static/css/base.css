@@ -63,7 +63,29 @@ body {
   border-bottom: 2px solid #0056b3;
 }
 
+/* Profile section */
+#profile {
+    background-color: rgb(234, 160, 1);
+}
 
+/* Workshop section */
+#workshop {
+    background-color: #b3ad1c; /* light grey */
+
+}
+#workshop .card-title {
+    color: #1f7798; /* mid-blue */
+    font-size: 1.2rem;
+
+}
+
+#workshop .btn:hover {
+    background-color:  #1f7798; /* mid-blue */
+}
+
+#workshop .card-text {
+    min-height: 120px;
+}
 
 
 .btn-black {
