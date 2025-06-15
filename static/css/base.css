@@ -20,6 +20,17 @@ html {
   letter-spacing: 2px;
 }
 
+/* Background Video */
+#bg_video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 #my-profession {
     font-size: 2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -103,7 +114,7 @@ body {
 
 /* Workshop section */
 #workshop {
-    background-color: #b3ad1c;
+    background-color: #185f03;
 
 }
 
@@ -120,12 +131,18 @@ body {
 }
 
 #workshop .btn:hover {
-    background-color: #b3ad1c; /* mid-yellow */
+    background-color: #b3ad1c;
 }
 
 
 #workshop .card-text {
     min-height: 120px;
+}
+
+/* contact section */
+#contact {
+    background-color: #540354;
+
 }
 
 
