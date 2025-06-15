@@ -1,6 +1,39 @@
 html {
     height: 100%;
 }
+/* This style annimate and falsh my name */
+@keyframes flashColors {
+  0%   { color: #ff4b5c; text-shadow: 0 0 5px #ff4b5c; }
+  20%  { color: #ffb400; text-shadow: 0 0 5px #ffb400; }
+  40%  { color: #0fbcf9; text-shadow: 0 0 5px #0fbcf9; }
+  60%  { color: #32ff7e; text-shadow: 0 0 5px #32ff7e; }
+  80%  { color: #a55eea; text-shadow: 0 0 5px #a55eea; }
+  100% { color: #ff4b5c; text-shadow: 0 0 5px #ff4b5c; }
+}
+
+#my-name {
+  font-family: 'Lato', sans-serif, cursive;
+  font-weight: bold;
+  animation: flashColors 5s infinite;
+  text-align: center;
+  margin-top: 3rem;
+  letter-spacing: 2px;
+}
+
+#my-profession {
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:black;
+}
+
+#purpose {
+    font-weight: 600;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: #ff4b5c;
+}
+
 
 .bg-img {
     position: absolute;
