@@ -34,12 +34,12 @@ html {
 #my-profession {
     font-size: 2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:black;
+    color:tan;
 }
 
 #purpose {
     font-weight: 600;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
     font-size: 3rem;
     color: #ff4b5c;
@@ -114,7 +114,7 @@ body {
 
 /* Workshop section */
 #workshop {
-    background-color: #185f03;
+    background-color: darkred;
 
 }
 
@@ -131,7 +131,7 @@ body {
 }
 
 #workshop .btn:hover {
-    background-color: #b3ad1c;
+    background-color: darkmagenta;
 }
 
 
@@ -141,7 +141,7 @@ body {
 
 /* contact section */
 #contact {
-    background-color: #540354;
+    background-color: darkcyan;
 
 }
 
@@ -157,8 +157,8 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: white;
+    color: black;
 }
 .btn-black:active,
 .btn-black:focus {
