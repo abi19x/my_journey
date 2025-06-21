@@ -1,47 +1,56 @@
-{% extends "base.html" %} {% load static %} {% block extra_css %}
+{% extends "base.html" %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
-{% endblock %} {% block page_header %}
+{% endblock extra_css %} 
+
+{% block page_header %}
 <div class="container header-container">
   <div class="row">
     <div class="col"></div>
   </div>
 </div>
-{% endblock %} {% block content %}
+{% endblock page_header %} 
+
+{% block content %}
 <div class="overlay"></div>
 <div class="container">
   <div class="row">
     <div class="col">
       <hr />
-      <h2 class="logo-font mb-4">Contribution</h2>
+      <h2 class="logo-font mb-4" id="contribution">Contribution</h2>
       <hr />
     </div>
   </div>
 
   <div class="row">
     <div class="col-12 col-lg-6">
-      <p class="text-muted">
+      <p class="text-muted" id="form-instruction">
         Please fill out the form below to make a difference!
       </p>
       <form action="{% url 'checkout' %}" method="POST" id="payment-form">
         {% csrf_token %}
         <fieldset class="rounded px-3 mb-5">
-          <legend class="fieldset-label small text-black px-2 w-auto">
+          <legend class="fieldset-label small text-black px-2 w-auto form-subsection">
             Details
           </legend>
-          {{ order_form.full_name | as_crispy_field }} {{ order_form.email |
-          as_crispy_field }}
+          {{ order_form.full_name | as_crispy_field }} 
+          {{ order_form.email | as_crispy_field }}
         </fieldset>
 
         <fieldset class="rounded px-3 mb-5">
-          <legend class="fieldset-label small text-black px-2 w-auto">
+          <legend class="fieldset-label small text-black px-2 w-auto form-subsection">
             Receive My Thank You Postcard
           </legend>
-          {{ order_form.phone_number | as_crispy_field }} {{ order_form.country
-          | as_crispy_field }} {{ order_form.postcode | as_crispy_field }} {{
-          order_form.town_or_city | as_crispy_field }} {{
-          order_form.street_address1 | as_crispy_field }} {{
-          order_form.street_address2 | as_crispy_field }} {{ order_form.county |
-          as_crispy_field }}
+          {{ order_form.phone_number | as_crispy_field }} 
+          {{ order_form.country | as_crispy_field }} 
+          {{ order_form.postcode | as_crispy_field }} 
+          {{ order_form.town_or_city | as_crispy_field }} 
+          {{ order_form.street_address1 | as_crispy_field }} 
+          {{ order_form.street_address2 | as_crispy_field }} 
+          {{ order_form.county | as_crispy_field }}
           <div class="form-check form-check-inline float-right mr-0">
             {% if user.is_authenticated %}
             <label class="form-check-label" for="id-save-info"
@@ -67,7 +76,7 @@
           </div>
         </fieldset>
         <fieldset class="rounded px-3 mb-5">
-          <legend class="fieldset-label small text-black px-2 w-auto">
+          <legend class="fieldset-label small text-black px-2 w-auto form-subsection">
             Payment
           </legend>
           <!-- A Stripe card element will go here -->
@@ -87,11 +96,18 @@
             <span class="icon">
               <i class="fas fa-exclamation-circle"></i>
             </span>
-            <span>Your card will be charged <strong>£100</strong></span>
+            <span id="card-caution">Your card will be charged <strong>£100</strong></span>
           </p>
         </div>
       </form>
     </div>
   </div>
 </div>
+{% endblock content %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
