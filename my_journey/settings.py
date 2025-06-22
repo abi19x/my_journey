@@ -29,7 +29,10 @@ SECRET_KEY = 'django-insecure-!uq#tbd(r@(zeo%#a)(4@n6qg%u%a7h80524+3gdk@s88sxs!z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1', # VS code preview
+    'localhost', # Listen for stripe webhooks 
+]
 
 
 # Application definition
@@ -173,3 +176,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
