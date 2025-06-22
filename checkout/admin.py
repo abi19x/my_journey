@@ -17,4 +17,3 @@ class OrderAdmin(admin.ModelAdmin):
     )
     
     ordering = ('-date',)
-
