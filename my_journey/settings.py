@@ -53,6 +53,8 @@ INSTALLED_APPS = [
 
     #other
     'crispy_forms',
+    'crispy_bootstrap4',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +69,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'my_journey.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap4"]
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 TEMPLATES = [
     {
