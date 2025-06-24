@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 if os.path.isfile('env.py'):
@@ -30,8 +31,9 @@ SECRET_KEY = 'django-insecure-!uq#tbd(r@(zeo%#a)(4@n6qg%u%a7h80524+3gdk@s88sxs!z
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', # VS code preview
-    'localhost', # Listen for stripe webhooks 
+    '127.0.0.1',  # local preview 
+    'localhost',  # listen for stripe webhooks
+    'my-journey-25-dd1acd9d55fc.herokuapp.com',  # heroku application
 ]
 
 
@@ -124,13 +126,21 @@ WSGI_APPLICATION = 'my_journey.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else: 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://neondb_owner:npg_yxJ5bzhHRU1r@ep-ancient-truth-a2qb0i8u.eu-central-1.aws.neon.tech/mural_bring_skirt_899125')
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -181,4 +191,5 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+SECRET_KEY = os.getenv('SECRET_KEY')
 DEFAULT_FROM_EMAIL = 'K9JA1XWK@STUDENTS.CODEINSTITUTE.NET'
