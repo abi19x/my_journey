@@ -54,6 +54,12 @@
                                     </td>
                                     <td>{{ order.date }}</td>
                                     <td>£{{ order.order_total }}</td>
+                                    <td>
+                                        <form method="POST" action="{% url 'soft_delete_order' order.order_number %}" onsubmit="return confirm('Are you sure you want to remove this record?');">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>

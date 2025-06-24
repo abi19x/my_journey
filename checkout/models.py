@@ -23,6 +23,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=100.00, editable=False)
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    deleted = models.BooleanField(default=False)
+
 
 
     def _generate_order_number(self):
