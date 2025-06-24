@@ -9,6 +9,21 @@ form {
     font-size: 3em;
 }
 
+h4 {
+    color: beige;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+#support {
+    color: burlywood;
+    background-color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
 #form-instruction {
     background-color: black;
     color: white;
