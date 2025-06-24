@@ -1,6 +1,7 @@
 from django import forms
 from .models import Order
 from django_countries.widgets import CountrySelectWidget
+from django_countries.fields import CountryField
 from django_countries import countries
 
 
@@ -12,6 +13,9 @@ class OrderForm(forms.ModelForm):
             'street_address1', 'street_address2',
             'town_or_city', 'postcode', 'country', 'county',
         )
+        widgets = {
+            'country': CountrySelectWidget()
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,24 +29,22 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
             'town_or_city': 'Town or City',
             'postcode': 'Postal Code',
-            'country': 'Country',
             'county': 'County, State or Locality',
         }
 
-        # Custom widget for CountryField
-        self.fields['country'].widget = CountrySelectWidget(choices=[('', 'Country *')] + list(countries))
-
+        # Force evaluation of choices to fix BlankChoiceIterator error
+        self.fields['country'].choices = [('', 'Country *')] + list(countries)
 
         # Autofocus first field
         self.fields['full_name'].widget.attrs['autofocus'] = True
 
-        # Loop through fields to apply placeholders and styling
+        # Apply placeholders and styling
         for field in self.fields:
             if field != 'country':
+                placeholder = placeholders.get(field, '')
                 if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
+                    placeholder += ' *'
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-                self.fields[field].label = False
+
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False
