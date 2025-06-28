@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from decimal import Decimal
 from django_countries.fields import CountryField
+from django_countries import countries
 from profiles.models import UserProfile
 
 # Create your models here.

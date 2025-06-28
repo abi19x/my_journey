@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import Order
+from .admin_forms import OrderAdminForm 
 
 # Register your models here.
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    form = OrderAdminForm  
     list_display = ('order_number', 'full_name', 'email', 'order_total', 'date')
     readonly_fields = ('order_number', 'order_total', 'date')
 
