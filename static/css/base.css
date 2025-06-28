@@ -279,9 +279,3 @@ body {
     }
 }
 
-/*  Maintain background image on small size screens
-@media (max-width: 576px) {
-    .bg-img {
-        width: 100px;
-    }
-} */
